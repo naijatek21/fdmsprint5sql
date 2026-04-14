@@ -42,7 +42,7 @@ UPDATE clients
 SET place_id = (
     SELECT place_id 
     FROM clients 
-    WHERE client_name='Toyota')
+    WHERE client_name='IBM')
 WHERE client_name="Toyota"
 SET SQL_SAFE_UPDATES = 1;
 --test
