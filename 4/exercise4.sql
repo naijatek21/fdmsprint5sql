@@ -19,53 +19,56 @@ INSERT INTO clients (client_id, client_name, place_id)
 
 SELECT * FROM clients_copy;
 
-Create TABLE contractors_copy LIKE contractors;
+CREATE TABLE contractors_copy LIKE contractors;
 INSERT INTO contractors (contractor_id, first_name, last_name, client_id)  SELECT contractor_id, first_name,last_name, client_id from contractors;
 
 SELECT * FROM contractors_copy;
 
---3.1
-
-SET SQL_SAFE_UPDATES=0;
+--3a
 UPDATE clients 
 SET place_id = 2
-WHERE client_name="Toyota"
-SET SQL_SAFE_UPDATES = 1;
+WHERE client_name="Toyota";
 
 SELECT client_name,place_id 
 FROM clients 
-WHERE client_name = 'Toyota' OR client_name='IBM' 
---3.2
+WHERE client_name = 'Toyota' OR client_name='IBM';
 
-SET SQL_SAFE_UPDATES=0;
+--3b
 UPDATE clients 
 SET place_id = (
     SELECT place_id 
     FROM clients 
     WHERE client_name='IBM')
-WHERE client_name="Toyota"
-SET SQL_SAFE_UPDATES = 1;
+WHERE client_name="Toyota";
 --test
 SELECT client_name,place_id 
 FROM clients 
-WHERE client_name = 'Toyota' OR client_name='IBM' 
+WHERE client_name = 'Toyota' OR client_name='IBM' ;
 
 
---4.1
+--4a
+UPDATE contractors 
+SET 
+    first_name='Jonathan',
+    last_name = 'Smithson'
+WHERE first_name = 'John' AND last_name = 'Smith';
+
+--4b
 SET SQL_SAFE_UPDATES=0;
 UPDATE contractors 
 SET 
     first_name='Jonathan',
     last_name = 'Smithson'
-WHERE first_name = 'John' AND last_name = 'Smith'
+WHERE first_name = 'John' AND last_name = 'Smith';
 SET SQL_SAFE_UPDATES = 1;
- 
- --4.3
+
+
+--4
     UPDATE contractors 
     SET 
         first_name='Jonathan',
         last_name = 'Smithson'
-    WHERE contractor_id = 7
+    WHERE contractor_id = 7;
     COMMIT
     SET AUTOCOMMIT=1
 
@@ -78,7 +81,7 @@ SET SQL_SAFE_UPDATES = 1;
         SELECT contractor_id 
         FROM contractors
         WHERE first_name = 'John' AND last_name = 'Smith'
-    )
+    );
 
 --4.5
 --      UPDATE contractors 
@@ -116,5 +119,5 @@ SET SQL_SAFE_UPDATES = 1;
         WHERE client_id NOT IN (
             SELECT client_id 
             FROM contractors
-        )
+        );
 
