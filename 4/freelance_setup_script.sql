@@ -1,5 +1,8 @@
+DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS clients;
+DROP TABLE IF EXISTS contractors;
 
-CREATE DATABASE if NOT EXISTS freelance;
+CREATE DATABASE IF NOT EXISTS freelance;
 
 USE freelance;
 
