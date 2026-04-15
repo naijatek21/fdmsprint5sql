@@ -106,6 +106,7 @@
 	SELECT DISTINCT share_id 
 	FROM shares_prices
 	WHERE price >= 400 AND price <= 500;
+    
     #Result: 1 and 7
 	
 #Q16
