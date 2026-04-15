@@ -1,12 +1,12 @@
+SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS locations;
 DROP TABLE IF EXISTS clients;
 DROP TABLE IF EXISTS contractors;
-
-CREATE DATABASE IF NOT EXISTS freelance;
-
+CREATE DATABASE if NOT EXISTS freelance;
+SET FOREIGN_KEY_CHECKS = 1;
 USE freelance;
 
-CREATE TABLE locations
+CREATE TABLE locations 
 (
    place_id INT,
    city VARCHAR(50),
@@ -19,7 +19,7 @@ Create TABLE clients(
     client_name VARCHAR(50),
     place_id INT,
     CONSTRAINT cli_pk PRIMARY KEY(client_id),
-    CONSTRAINT place_fk FOREIGN KEY(place_id) REFERENCES locations
+    CONSTRAINT place_fk FOREIGN KEY(place_id) REFERENCES locations(place_id)
 
 );
 
@@ -29,7 +29,7 @@ CREATE Table contractors(
     last_name VARCHAR(50),
     client_id INT,
     CONSTRAINT con_pk PRIMARY KEY(contractor_id),
-    CONSTRAINT cli_fk FOREIGN KEY(client_id) REFERENCES clients
+    CONSTRAINT cli_fk FOREIGN KEY(client_id) REFERENCES clients(client_id)
 
 );
 
@@ -40,6 +40,8 @@ INSERT into locations (place_id, city, country) VALUES
 (3, 'Paris', 'France'),
 (4, 'Tokyo', 'Japan');
 
+SELECT * FROM locations;
+
 INSERT into clients (client_id, client_name, place_id) VALUES
 (1, 'BA', 1),
 (2, 'EDF', 3),
@@ -48,7 +50,9 @@ INSERT into clients (client_id, client_name, place_id) VALUES
 (5, 'Tesco', 1),
 (6, 'Toyota', 4);
 
-INSERT into contractors (contractor_id, first_name, last_name, client_id) VALUES
+SELECT * FROM clients;
+
+INSERT INTO contractors (contractor_id, first_name, last_name, client_id) VALUES
 (1, 'Andrew', 'Wallace', 4),
 (2, 'Andre', 'Sinclair', 3),
 (3, 'John', 'Smith', 1),
@@ -57,3 +61,4 @@ INSERT into contractors (contractor_id, first_name, last_name, client_id) VALUES
 (6, 'Paul', 'Piper', 2),
 (7, 'John', 'Smith', 4);
 
+SELECT * from contractors;
