@@ -21,7 +21,7 @@
 #Q4
     SELECT city, country 
     FROM places
-    WHERE country = 'France'
+    WHERE country = 'France';
     
     #Answer: Paris
 #Q5
@@ -41,7 +41,7 @@
 #Q7
     SELECT * 
     FROM companies
-    WHERE company_id = 2
+    WHERE company_id = 2;
     
     #Answer : The New York Times 
 
