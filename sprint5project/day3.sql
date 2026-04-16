@@ -121,7 +121,7 @@ ORDER BY
 --Question 11
 
 /*
-SHows the number of unique account types each customer has in ascending customer id order 
+Shows the number of unique account types each customer has in ascending customer id order 
 and descending accountb type order
 */
 	

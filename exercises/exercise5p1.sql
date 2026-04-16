@@ -2,7 +2,7 @@
     SELECT currency_name 
     FROM currencies;
     
-    #Answer: US Dollar, Euro, AUS Dollar, British Pound, and Yen
+    -- Answer: US Dollar, Euro, AUS Dollar, British Pound, and Yen
 
 #Q2
     SELECT * 

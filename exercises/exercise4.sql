@@ -1,5 +1,5 @@
 USE freelance;
-SET AUTOCOMMIT=0;
+-- SET AUTOCOMMIT=0;
 
 -- 2
 
@@ -25,7 +25,7 @@ INSERT INTO contractors_copy (contractor_id, first_name, last_name, client_id)  
 SELECT * FROM contractors_copy;
 
 -- 3a
-SET SQL_SAFE_UPDATES=0;
+SET SQL_SAFE_UPDATES = 0;
 UPDATE clients 
 SET place_id = 2
 WHERE client_name="Toyota";
