@@ -82,7 +82,7 @@ USE trading_platform;
 
 #Q7
 	SELECT
-		CONCAT(b.first_name,' ', b.last_name) AS `Broker Name`
+		CONCAT(b.first_name,' ', b.last_name) AS `Broker With Highest Average Share Amount`,
     FROM
 		trades t
 	 INNER JOIN
